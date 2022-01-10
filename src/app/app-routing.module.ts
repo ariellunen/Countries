@@ -9,8 +9,9 @@ const routes: Routes = [
     component: HomeComponent,
   },
   {
-    path:':flag',
-    component: FlagComponent
+    path:'flag/:countryCode',
+    component: FlagComponent,
+    
   }
 ];
 

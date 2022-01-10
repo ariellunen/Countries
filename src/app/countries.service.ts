@@ -8,7 +8,8 @@ export interface Country{
   },
   flags: {
     svg: string;
-  }
+  },
+  cca3: string;
 }
 
 @Injectable({
@@ -21,9 +22,7 @@ export class CountriesService {
     return this.http.get<Country[]>('https://restcountries.com/v3.1/all')
   }
 
-  getCountryByName(name:string) {
-    return this.http.get<Country[]>(`https://restcountries.com/v3.1/name/${name}`).pipe(
-      map(([res]) => res)
-    )
+  getCountryByName(code:string) {
+    return this.http.get<Country[]>(`https://restcountries.com/v3.1/alpha/${code}`);
   }
 }

@@ -8,16 +8,16 @@ import { Country, CountriesService } from '../../countries.service';
   styleUrls: ['./flag.component.scss']
 })
 export class FlagComponent implements OnInit {
-  country : Country[] = [];
+  public country: any = undefined;
   constructor(private api: CountriesService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    //TODO: cant get to params.flag
-    this.route.params.subscribe(params => {
-      // this.api.getCountryByName(params)
-      console.log(params);
-      
-    })
+    const countryCode = String(this.route.snapshot.paramMap.get('countryCode'));
+    this.api.getCountryByName(countryCode).subscribe((countryData) => {
+      this.country = countryData.pop();
+      console.log(this.country);
+    }); 
+    
   }
 
 }

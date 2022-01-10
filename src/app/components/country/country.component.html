@@ -5,7 +5,7 @@
         [src]="country.flags.svg" 
     />
 </div> -->
-<li *ngIf="country" [routerLink] = "'/'+ country.name.common">
+<li *ngIf="country" [routerLink] = "'/flag/'+ country.cca3">
     <div class="li-img">
         <img class="flag" 
             *ngIf="country.flags.svg" 
