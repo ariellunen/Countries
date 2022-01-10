@@ -1,0 +1,99 @@
+.list {
+    max-width: 1400px;
+    margin: 20px auto;
+    list-style-type: none;
+  }
+    
+  @media all and (min-width: 45em) {
+    .list li {
+      float: left;
+      width: 50%;
+    }
+  }
+  
+  @media all and (min-width: 75em) {
+    .list li {
+      width: 33.33333%;
+    }
+  }
+  
+  /* for flexbox */
+  @supports(display: flex) {
+    .list {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    
+    .li-img,
+    .li-text,
+    .list li {
+      display: block;
+      float: none;
+    }
+  
+    .li-img {
+      align-self: center; /* to match the middle alignment of the original */
+    }
+    
+    .inner {
+      display: flex;
+    }
+  }
+  
+  /* for grid */
+  @supports(display: grid) {
+    .list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    }
+    
+    .list li {
+      width: auto; /* this overrides the media queries */
+    }
+  }
+
+// .table-latitude {
+//     width: 100%;
+//     caption {
+//         text-transform: uppercase;
+//         font-weight: bold;
+//         color: $lfs-yellow;
+//         text-align: center;
+//     }
+//     thead {
+//         border-top: 2px solid $lfs-yellow;
+//         border-bottom: 2px solid $lfs-yellow;
+//         th {
+//             text-transform: uppercase;
+//             text-align: center;
+//             padding: 10px;
+//             color: $lfs-blue;
+//             border: 1px solid #F1F1F1;
+//         }
+//     }
+//     tbody {
+//         tr {
+//             border-bottom: 1px solid #F1F1F1;
+//             color: $lfs-grey;
+//             td {
+//                 padding: 10px;
+//                 border: 1px solid #F1F1F1;
+//             }
+//             th {
+//                 padding-left: 10px;
+//                 border: 1px solid #F1F1F1;
+//             }
+//         }
+//     }
+//     tfoot {
+//         color: $lfs-yellow;
+//         font-style: italic;
+//         border-bottom: 2px solid $lfs-yellow;
+//         tr {
+//             td {
+//                 padding: 10px;
+//                 border: 1px solid #F1F1F1;
+//             }
+//         }
+//     }
+// }

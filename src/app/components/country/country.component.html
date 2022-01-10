@@ -1,0 +1,18 @@
+<!-- <div *ngIf="country" [routerLink] = "'/'+ country.name.common">
+    <h4>{{country.name.common}}</h4>
+    <img class="flag" 
+        *ngIf="country.flags.svg" 
+        [src]="country.flags.svg" 
+    />
+</div> -->
+<li *ngIf="country" [routerLink] = "'/'+ country.name.common">
+    <div class="li-img">
+        <img class="flag" 
+            *ngIf="country.flags.svg" 
+            [src]="country.flags.svg" 
+        />
+    </div>
+    <div class="li-text">
+      <h3 class="li-head">{{country.name.common}}</h3>
+    </div>
+</li>

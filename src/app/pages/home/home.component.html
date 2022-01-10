@@ -1,0 +1,28 @@
+<!-- <div>
+    <input 
+        type="text" 
+        placeholder="Search for a country..."
+        [(ngModel)]="searchFilter"
+    />
+</div>
+
+<div>
+    <app-country 
+        *ngFor="let country of countries" 
+        [country]="country">       
+    </app-country>
+</div> -->
+
+<input 
+    type="text" 
+    placeholder="Search for a country..."
+    [(ngModel)]="searchFilter"
+/>
+<ul class="list img-list">
+    <app-country 
+        *ngFor="let country of countries" 
+        [country]="country">       
+    </app-country>
+
+</ul>   
+  
