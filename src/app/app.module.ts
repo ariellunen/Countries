@@ -9,15 +9,17 @@ import { FlagComponent } from './pages/flag/flag.component';
 import { CountryComponent } from './components/country/country.component';
 import { NgxIndexedDBModule, DBConfig } from 'ngx-indexed-db';
 
-const dbConfig: DBConfig  = {
-  name: 'MyDb',
+const dbConfig: DBConfig = {
+  name: 'countriesDB',
   version: 1,
   objectStoresMeta: [{
     store: 'countries',
-    storeConfig: { keyPath: 'id', autoIncrement: true },
+    storeConfig: {keyPath: 'id', autoIncrement: true},
     storeSchema: [
-      { name: 'name', keypath: 'name', options: { unique: false } },
-      { name: 'email', keypath: 'email', options: { unique: false } }
+      {name: 'countryData', keypath: 'countryData', options: { unique: false}},
+      // {name: 'last_name', keypath: 'last_name', options: { unique: false}},
+      // {name: 'profile_photo', keypath: 'profile_photo', options: { unique: false}},
+      // {name: 'email', keypath: 'email', options: { unique: true}}
     ]
   }]
 };
