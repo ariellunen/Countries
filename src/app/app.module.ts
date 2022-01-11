@@ -17,9 +17,6 @@ const dbConfig: DBConfig = {
     storeConfig: {keyPath: 'id', autoIncrement: true},
     storeSchema: [
       {name: 'countryData', keypath: 'countryData', options: { unique: false}},
-      // {name: 'last_name', keypath: 'last_name', options: { unique: false}},
-      // {name: 'profile_photo', keypath: 'profile_photo', options: { unique: false}},
-      // {name: 'email', keypath: 'email', options: { unique: true}}
     ]
   }]
 };
@@ -35,8 +32,8 @@ const dbConfig: DBConfig = {
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    NgxIndexedDBModule.forRoot(dbConfig),
     FormsModule,
-    NgxIndexedDBModule.forRoot(dbConfig)
   ],
   providers: [],
   bootstrap: [AppComponent]
