@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Country, CountriesService } from '../../countries.service';
-import { NgxIndexedDBService, IndexDetails } from 'ngx-indexed-db';
+import { NgxIndexedDBService } from 'ngx-indexed-db';
 
 @Component({
   selector: 'app-flag',
@@ -18,41 +18,20 @@ export class FlagComponent implements OnInit {
 
   ngOnInit(): void {
     const countryCode = String(this.route.snapshot.paramMap.get('countryCode'));
-    this.api.getCountryByName(countryCode).subscribe((countryData) => {
+    this.api.getCountryByName(countryCode).subscribe((countryData:Country[]) => {
       this.country = countryData.pop();
       console.log(this.country);
-      this.test();
+      this.addCountry();
     });  
   }
 
-  test(){
+  addCountry(){
     this.dbService.add('countries', {
       countryData: this.country,
     })
     .subscribe((key) => {
-      console.log('key: ', key);
-      this.getAll();
+      this.api.addCountry(this.country)
     });
   }
-
-  getAll(){
-    this.dbService.getAll('countries').subscribe((key) => {
-      console.log('all:', key);
-    })
-  }
-
-    // //function to retrive all by index
-    // getFromIndexDb(email:any){
-    //   let index_detail:IndexDetails = {
-    //     indexName: 'email',
-    //     order: 'asc'
-    //   }
-  
-    //   //get all data with the email field equal to the email passed
-    //   this.dbService.getAllByIndex('coolTable', 'email', IDBKeyRange.only(email))
-    //   .subscribe((kpis) => {
-    //     console.log(kpis);
-    //   })
-    // }
 
 }

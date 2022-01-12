@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.api.getAllCountries().subscribe((countries) => {
+    this.api.getAllCountries().subscribe((countries: any) => {
       this.source = Immutable.List(countries);
     });
   }
